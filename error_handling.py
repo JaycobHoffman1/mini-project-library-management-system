@@ -27,7 +27,7 @@ class ErrorHandler:
             
     def check_if_already_exists(self, obj_type, dict, target_identifier):
         try:
-            if target_identifier.lower() in [identifier.lower() for identifier in dict.identifiers()]:
+            if target_identifier.lower() in [identifier.lower() for identifier in dict.keys()]:
                 raise ValueError(f"\nKThis {obj_type} already exists in the system.")
         except ValueError as v:
             print(v)
@@ -57,3 +57,12 @@ class ErrorHandler:
             return False
         
         return True
+    
+    def check_if_book_is_borrowed(self, book):
+        try:
+            if not book.get_availability_status():
+                raise ValueError
+        except ValueError:
+            return True
+        
+        return False

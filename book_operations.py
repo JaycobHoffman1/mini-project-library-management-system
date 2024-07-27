@@ -1,5 +1,6 @@
 from error_handling import ErrorHandler as e
 from book import Book as b
+from user_operations import UserOperations as u
 
 class BookOperations:
     def __init__(self):
@@ -69,4 +70,49 @@ class BookOperations:
         if not book:
             return
         
-        # PICK UP WHERE YOU LEFT OFF HERE (check if book is already borrowed, etc.)
+        if self.get_e().check_if_book_is_borrowed(book):
+            print(f"\nBook \"{title}\" has already been borrowed.")
+
+            return
+        
+        book.set_availability_status()
+        print(book.get_availability_status())
+        user.set_borrowed_book_titles(title)
+
+        print(f"\nBook \"{title}\" borrowed!")
+
+    def return_book(self, user_ops):
+        print("\nReturn a book:\n")
+
+        if not self.get_e().find_objects(user_ops.get_users()):
+            print("Please add a user before returning a book.")
+
+            return
+
+        library_id = self.get_e().validate_input("Enter the library ID of the user returning the book: ",\
+        "library ID", user_ops.get_library_id_pattern())
+        user = self.get_e().check_if_exists("user", user_ops.get_users(), library_id)
+        title = self.get_e().check_input("Enter the book title you wish to return: ", "Title")
+        book = self.get_e().check_if_exists("book", self.get_books(), title)
+
+        if not book:
+            return
+        
+        if not self.get_e().check_if_book_is_borrowed(book):
+            print(f"\nBook \"{title}\" has not been borrowed.")
+
+            return
+        
+        book.set_availability_status()
+        user.get_borrowed_book_titles().remove(title) # LEFT OFF HERE
+
+        print(f"\nBook \"{title}\" returned!")
+
+user_ops = u() # KEEP THESE
+book_ops = BookOperations()
+
+user_ops.add_user()
+user_ops.add_user()
+book_ops.add_new_book()
+book_ops.borrow_book(user_ops)
+book_ops.return_book(user_ops)
