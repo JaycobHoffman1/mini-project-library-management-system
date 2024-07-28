@@ -106,4 +106,4 @@ The Library Management System will raise ```ValueError```s with accompanying mes
 
 #
 
-View the Library Management System [GitHub Repository](https://github.com/JaycobHoffman1/mini-project-contact-management-system)
+View the Library Management System [GitHub Repository](https://github.com/JaycobHoffman1/mini-project-library-management-system)
