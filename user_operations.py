@@ -29,7 +29,7 @@ class UserOperations:
         print("\nAdd a new user:\n")
 
         name = self.get_e().check_input("Enter the user name: ", "Name")
-        library_id = self.get_e().validate_input("Enter the user library ID: ", "Library ID", self.get_library_id_pattern())
+        library_id = self.get_e().validate_input("Enter the user library ID: ", "library ID", self.get_library_id_pattern())
         new_user = u(name, library_id)
 
         if self.get_e().check_if_already_exists("user", self.get_users(), library_id):

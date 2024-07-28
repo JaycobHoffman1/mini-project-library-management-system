@@ -45,7 +45,7 @@ class UserInterface:
     def display_user_interface(self):
         def display_book_operations(): # Displays book operations menu
             while True:
-                print("\nBook Operations:\n\
+                print("\nBook operations:\n\
 1. Add a new book\n\
 2. Borrow a book\n\
 3. Return a book\n\
@@ -70,7 +70,7 @@ class UserInterface:
 
         def display_user_operations(): # Displays user operations menu
             while True:
-                print("\nUser Operations:\n\
+                print("\nUser operations:\n\
 1. Add a new user\n\
 2. View user details\n\
 3. Display all users\n\
@@ -89,7 +89,7 @@ class UserInterface:
 
         def display_genre_operations(): # Displays genre operations menu
             while True:
-                print("\nGenre Operations:\n\
+                print("\nGenre operations:\n\
 1. Add a new genre\n\
 2. View genre details\n\
 3. Display all genres\n\
@@ -108,7 +108,7 @@ class UserInterface:
 
         def display_author_operations(): # Displays author operations menu
             while True:
-                print("\nAuthor Operations:\n\
+                print("\nAuthor operations:\n\
 1. Add a new author\n\
 2. View author details\n\
 3. Display all authors\n\
@@ -130,10 +130,10 @@ class UserInterface:
 
             print("\nWelcome to the Library Management System!\n\n\
 Main Menu:\n\
-1. Book Operations\n\
-2. User Operations\n\
-3. Author Operations\n\
-4. Genre Operations\n\
+1. Book operations\n\
+2. User operations\n\
+3. Author operations\n\
+4. Genre operations\n\
 5. Quit\n")
             
             user_selection = self.get_e().check_if_in_range("Please select an option from the menu above: ", "Field", 5)
