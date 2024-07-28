@@ -2,7 +2,7 @@ class User:
     def __init__(self, name, library_id):
         self.__name = name
         self.__library_id = library_id
-        self.__borrowed_book_titles = []
+        self.__borrowed_book_titles = [] # List of borrowed "Book.get_title()"s
 
     def get_name(self):
         return self.__name

@@ -4,7 +4,7 @@ from genre import Genre as g
 class GenreOperations:
     def __init__(self):
         self.__error_handling = e()
-        self.__genres = {}
+        self.__genres = {} # stores "Genre.get_name()" as key and "Genre" object as value
 
     def get_e(self):
         return self.__error_handling
@@ -15,10 +15,10 @@ class GenreOperations:
     def set_e(self, new_e):
         self.__error_handling = new_e
 
-    def set_genres(self, identifier, obj):
+    def set_genres(self, identifier, obj): # Adds new "Genre.get_name()" (key) and "Genre" object (value)
         self.__genres[identifier] = obj
 
-    def add_genre(self):
+    def add_new_genre(self): # Allows users to add new genre to "self.__genres"
         print("\nAdd a new genre:\n")
 
         name = self.get_e().check_input("Enter the genre name: ", "Name")
@@ -33,7 +33,7 @@ class GenreOperations:
 
         print(f"\nGenre \"{name}\" added!")
 
-    def view_genre_details(self):
+    def view_genre_details(self): # Allows users to search for and display genre details
         print("\nView genre details:\n")
 
         if not self.get_e().find_objects(self.get_genres()):
@@ -52,7 +52,7 @@ class GenreOperations:
 - Description: {genre.get_description()}\n\
 - Category: {genre.get_category()}")
         
-    def display_all_genres(self):
+    def display_all_genres(self): # Displays all genre names
         print("\nDisplay all genres:\n")
 
         if not self.get_e().find_objects(self.get_genres()):

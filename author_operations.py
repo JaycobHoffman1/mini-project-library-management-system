@@ -4,7 +4,7 @@ from author import Author as a
 class AuthorOperations:
     def __init__(self):
         self.__error_handling = e()
-        self.__authors = {}
+        self.__authors = {} # stores "Author.get_name()" as key and "Author" object as value
 
     def get_e(self):
         return self.__error_handling
@@ -15,10 +15,10 @@ class AuthorOperations:
     def set_e(self, new_e):
         self.__error_handling = new_e
 
-    def set_authors(self, identifier, obj):
+    def set_authors(self, identifier, obj): # Adds new "Author.get_name()" (key) and "Author" object (value)
         self.__authors[identifier] = obj
 
-    def add_author(self):
+    def add_new_author(self): # Allows users to add new author to "self.__authors"
         print("\nAdd a new author:\n")
 
         name = self.get_e().check_input("Enter the author name: ", "Name")
@@ -32,7 +32,7 @@ class AuthorOperations:
 
         print(f"\nAuthor \"{name}\" added!")
 
-    def view_author_details(self):
+    def view_author_details(self): # Allows users to search for and display author details
         print("\nView author details:\n")
 
         if not self.get_e().find_objects(self.get_authors()):
@@ -50,7 +50,7 @@ class AuthorOperations:
 - Name: {author.get_name()}\n\
 - Biography: {author.get_biography()}")
         
-    def display_all_authors(self):
+    def display_all_authors(self): # Displays all author names
         print("\nDisplay all authors:\n")
 
         if not self.get_e().find_objects(self.get_authors()):
