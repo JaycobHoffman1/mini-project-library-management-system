@@ -86,6 +86,8 @@ Genre operations:
 2. View genre details
 3. Display all genres
 4. Main menu
+
+Please select an option from the menu above:
 ```
 
 When the task has finished, the menu will display again and prompt the user to select another option. This cycle will continue indefinitely until the user selects the "Main menu" option, in which they will be returned to the main menu.
